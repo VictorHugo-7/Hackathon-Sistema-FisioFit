@@ -3,22 +3,16 @@ import { useNavigate } from 'react-router';
 
 const ProtectedRoute = ({ children }) => {
     const navigate = useNavigate();
+    const token = localStorage.getItem('token');
 
     useEffect(() => {
-        const token = localStorage.getItem('token');
-
         if (!token) {
             navigate('/login');
         }
-    }, [navigate]);
+    }, [navigate, token]);
 
-    // Se há token, renderiza o componente filho
-    const token = localStorage.getItem('token');
-
-    if (!token) {
-        return null; // ou um componente de loading
-    }
-
+    if (!token) 
+        return null; 
     return children;
 };
 

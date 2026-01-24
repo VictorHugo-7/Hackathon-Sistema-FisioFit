@@ -1,17 +1,16 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import { createBrowserRouter, RouterProvider } from "react-router";
-
+import { createBrowserRouter, RouterProvider, Navigate } from "react-router";
 import './index.css'
-import Login from './page/Login.jsx'
-import Cadastro from './page/Cadastro.jsx'
-import Sistema from './page/Sistema.jsx'
-import ProtectedRoute from './ProtectedRoute.jsx'
+import Login from './pages/Login.jsx'       
+import Cadastro from './pages/Cadastro.jsx' 
+import Sistema from './pages/Sistema.jsx'   
+import ProtectedRoute from './components/ProtectedRoute.jsx' 
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Login />,
+    element: <Navigate to="/login" replace />, 
   },
   {
     path: "/login",

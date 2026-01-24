@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+:root {
+    /* Cor - Variáveis */
+    --color-black: #000000;
+    --color-white: #ffffff;
+    --color-gray:  #6C757D;
+    --color-red-1: #F23943;
+    --color-red-2: #F2676E;
+}

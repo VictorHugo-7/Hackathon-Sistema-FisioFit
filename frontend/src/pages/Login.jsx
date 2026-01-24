@@ -1,15 +1,18 @@
 import { useState } from 'react';
 import { User, Lock, Eye, EyeOff } from 'lucide-react';
 import { Link, useNavigate } from "react-router";
-import logo from '../assets/logo.svg'
+import logo from '../assets/logo.svg';
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
+
     const [formData, setFormData] = useState({
         login: '',
         password: ''
     });
+
     const [isLoading, setIsLoading] = useState(false);
+
     const [error, setError] = useState('');
 
     const navigate = useNavigate();
@@ -24,7 +27,6 @@ const Login = () => {
             ...prev,
             [name]: value
         }));
-        // Limpa o erro quando o usuário começa a digitar
         if (error) setError('');
     };
 
@@ -34,7 +36,7 @@ const Login = () => {
         setError('');
 
         try {
-            const response = await fetch('http://localhost:3000/login', {
+            const response = await fetch('http://localhost:3000/auth/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -44,10 +46,9 @@ const Login = () => {
 
             if (response.ok) {
                 const data = await response.json();
-                // Salva o token no localStorage
                 localStorage.setItem('token', data.token);
                 localStorage.setItem('login', formData.login);
-                // Redireciona para a página do sistema
+                localStorage.setItem('userId', data.id);
                 navigate('/sistema');
             } else {
                 const errorData = await response.json();

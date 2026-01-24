@@ -1,16 +1,20 @@
 import { useState } from 'react';
 import { User, Lock, Eye, EyeOff } from 'lucide-react';
 import { Link, useNavigate } from "react-router";
-import logo from '../assets/logo.svg'
+import logo from '../assets/logo.svg';
 
 const Cadastro = () => {
     const [showPassword, setShowPassword] = useState(false);
+
     const [formData, setFormData] = useState({
         login: '',
         password: ''
     });
+
     const [isLoading, setIsLoading] = useState(false);
+
     const [error, setError] = useState('');
+
     const [success, setSuccess] = useState('');
 
     const navigate = useNavigate();
@@ -25,7 +29,6 @@ const Cadastro = () => {
             ...prev,
             [name]: value
         }));
-        // Limpa mensagens quando o usuário começa a digitar
         if (error) setError('');
         if (success) setSuccess('');
     };
@@ -36,7 +39,6 @@ const Cadastro = () => {
         setError('');
         setSuccess('');
 
-        // Validações básicas
         if (formData.password.length < 6) {
             setError('A senha deve ter pelo menos 6 caracteres');
             setIsLoading(false);
@@ -44,7 +46,7 @@ const Cadastro = () => {
         }
 
         try {
-            const response = await fetch('http://localhost:3000/signup', {
+            const response = await fetch('http://localhost:3000/auth/signup', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -54,9 +56,7 @@ const Cadastro = () => {
 
             if (response.status === 201) {
                 setSuccess('Conta criada com sucesso! Redirecionando para o login...');
-                // Limpa o formulário
                 setFormData({ login: '', password: '' });
-                // Redireciona para o login após 2 segundos
                 setTimeout(() => {
                     navigate('/login');
                 }, 2000);
