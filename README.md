@@ -70,7 +70,7 @@ Requisitos:
     . MongoDB 5.0+ para banco de dados NoSQL
     . IDE (VS Code recomendado)
 
-### Execução:
+Execução:
     1. Clone o repositório                | git clone https://github.com/VictorHugo-7/Hackathon-Sistema-FisioFit
     
     2. Navegue até o diretório do projeto | cd Hackathon-Sistema-FisioFit
@@ -108,7 +108,39 @@ Requisitos:
 <!--ESTRUTURA DE PASTAS-->
 ## Estrutura de Pastas
 ````
-
+├── backend/
+│   ├── server.js
+│   ├── config/
+│   │   └── db.js
+│   ├── controllers/
+│   │   ├── authController.js
+│   │   └── lembreteController.js
+│   ├── models/
+│   │   ├── Lembrete.js
+│   │   └── Usuario.js
+│   └── routes/
+│       ├── authRoutes.js
+│       └── lembreteRoutes.js
+├── frontend/
+│   └── src/
+│       ├── index.css
+│       ├── main.jsx
+│       ├── components/
+│       │   ├── ProfileModal.jsx
+│       │   └── ProtectedRoute.jsx
+│       └── pages/
+│           ├── Cadastro.jsx
+│           ├── Login.jsx
+│           └── Sistema.jsx
+├── .gitignore
+├── LICENSE
+├── README.md
+├── eslint.config.js
+├── index.html
+├── LICENSE
+├── package-lock.json
+├── package.json
+├── vite.config.js
 ````
 
 
@@ -122,4 +154,5 @@ Requisitos:
 <!--LICENÇA-->
 ## Licença
 [Veja a licença](https://github.com/VictorHugo-7/Hackathon-Sistema-FisioFit?tab=License-1-ov-file)
+
 
